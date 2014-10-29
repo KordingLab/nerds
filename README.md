@@ -10,3 +10,6 @@ Requirements
 
 Team members
 ----------
+* Eva Dyer
+* Christoph Studer
+* Titipat Achakulvisut
