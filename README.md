@@ -4,7 +4,7 @@ NERDS
 
 Related Publication
 ---------
-* [Dyer et. al., A robust and efficient method to recover neural events from noisy and corrupted data, IEEE, 2013] (http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6696004)
+* [Dyer, E.L.; Studer, C.; Robinson, J.T.; Baraniuk, R.G., "A robust and efficient method to recover neural events from noisy and corrupted data," Neural Engineering (NER), 6th International IEEE/EMBS Conference, pp.593-596, 2013] (http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6696004)
 
 Description
 ---------
