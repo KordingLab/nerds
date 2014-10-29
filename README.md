@@ -17,7 +17,7 @@ Requirements
 
 Usage
 ---------
-setup SPGL1, change directory to downloaded spgl folder then type following line in Matlab shell.
+To setup SPGL1 package, change directory to the downloaded SPGL1 folder then type following line in Matlab shell.
 
 `spgsetup`
 
@@ -26,7 +26,7 @@ repository to particular directory that we want
 
 `git clone https://github.com/KordingLab/nerds`
 
-Example
+Example Code
 ---------
 
 
