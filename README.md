@@ -8,12 +8,13 @@ Related Publication
 
 Description
 ---------
-Matlab package implementing blind deconvolution method for neural spike recovery
+Matlab package implementing blind deconvolution method for neural spike recovery from calcium signal
 
 Requirements
 ---------
-* Matlab >= 2007
-* [SPGL1](https://www.math.ucdavis.edu/~mpf/spgl1/) (Solver for large-scale sparse reconstruction)
+* Matlab version >= 2007
+* [SPGL1](https://www.math.ucdavis.edu/~mpf/spgl1/) (Solver for large-scale sparse reconstruction) see also git [link](https://github.com/mpf/spgl1) and adjusted SPGL1 (note that we include SPGL1 and extra code in our repo)
+
 
 Usage
 ---------
@@ -25,6 +26,9 @@ In order to download NERDS folder, either download zip file from git repository 
 repository to particular directory that we want
 
 `git clone https://github.com/KordingLab/nerds`
+
+After that, run `setup_nerds.m` code in order to include path and setup SPGL1 tool.
+
 
 Example Code
 ---------
