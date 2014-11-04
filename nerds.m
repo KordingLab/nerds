@@ -13,7 +13,7 @@ y = vec(y);         % vectorize signal
 y = padding(y, L);  % zero padding to prevent circular shift
 N = length(y);
 
-% create initial atom (length L)
+% create initial atom/template (length L)
 gen_atom = exp(-[0:1:N-1]'./(L/4));
 gen_atom = gen_atom/norm(gen_atom);         % normalized
 gen_atom_freq = 1/sqrt(N)*fft(gen_atom);    % frequency normalized
@@ -38,7 +38,7 @@ for trials = 1:numTrials
     [gen_atom, set] = gen_new_atom(y, x_hat, N, L, wsize, thresh);
     
     % all result
-    gen_atom_mat(:,trials+1) = gen_atom;
+    gen_atom_mat(:, trials+1) = gen_atom;
     set_list{trials} = set;
     x_hat_mat(:,trials) = x_hat(1:N);
     e_hat_mat(:,trials) = x_hat(N+1:end);

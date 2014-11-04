@@ -8,7 +8,7 @@ l = length(ephys_signal);
 [m, n] = size(fluorescent);
 bin_len = floor(l/n);            % total number of bins
 peak_dist = 20;
-threshold = floor(max(ephys_signal)/2);
+threshold = min(ephys_signal)+floor((max(ephys_signal)-min(ephys_signal))/2);
 
 peak_counts = zeros(n, 1);       % length equal to column of flo matrix
 for i = 1:n

@@ -19,8 +19,6 @@ Omega = L:N;
 [x_out, ~] = constrained_LS(LSdict_fun,y_E_fft,N,Omega,maxSVD,100,1e-6);
 
 x_new = est_gam_dist(x_out, L);
-%xnew = x_out(1:L);
-%x_out2 = xnew;
 
 x_new = x_new./norm(x_new);
 
