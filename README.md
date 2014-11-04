@@ -18,21 +18,21 @@ Requirements
 
 Usage
 ---------
-To setup SPGL1 package, change directory to the downloaded SPGL1 folder then type following line in Matlab shell.
-
-`spgsetup`
 
 In order to download NERDS folder, either download zip file from git repository directly or use git to clone 
 repository to particular directory that we want
 
 `git clone https://github.com/KordingLab/nerds`
 
-After that, run `setup_nerds.m` code in order to include path and setup SPGL1 tool.
+After that, run `setup_nerds.m` code in order to include path and setup SPGL1 package. In `setup_nerds` file, 
+we included path in nerds folder and run setup file from SPGL1 package.
 
 
 Example Code
 ---------
 
+See `example_synth.m` file for an example from the paper and `example_nerds.m` that we apply NERDS algorithm 
+to real data.
 
 
 Team members
