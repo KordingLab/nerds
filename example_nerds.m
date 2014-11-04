@@ -4,6 +4,7 @@
 % ephys - single cell recording assuming that it has more sampling rate
 % flo - fluorescent signal from Calcium imaging
 load('example_data')
+flo = rescale(flo);
 peak_counts = count_peaks(ephys, flo); % assume
 
 %%

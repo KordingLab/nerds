@@ -1,5 +1,5 @@
 function [gen_atom_mat,set_list,x_hat_mat,e_hat_mat] = nerds(y, L, numTrials, thresh, wsize)
-% y - input fluorescent signal
+% y - input 1-D fluorescent signal
 % L - approximate length of template (gen_atom)
 % numTrials - number of iterations that you want to run
 % thresh - thershold measuring from physiological data
@@ -9,9 +9,10 @@ if nargin<5
     wsize = 10;
 end
 
-y = vec(y);         % vectorize signal
+y = vec(y);         % vectorize input signal
+N = length(y);      % length of input signal
 y = padding(y, L);  % zero padding to prevent circular shift
-N = length(y);
+
 
 % create initial atom/template (length L)
 gen_atom = exp(-[0:1:N-1]'./(L/4));
@@ -27,7 +28,7 @@ gen_atom_mat(:,1) = initial_atom;
 
 for trials = 1:numTrials
     
-    opts = spgSetParms('verbosity', true);
+    opts = spgSetParms('verbosity', false);
     dict_fun = @(x,mode) dict(x, mode, N, gen_atom_freq);
     
     % non-negativity constraint on coefficients
@@ -39,9 +40,9 @@ for trials = 1:numTrials
     
     % all result
     gen_atom_mat(:, trials+1) = gen_atom;
-    set_list{trials} = set;
     x_hat_mat(:,trials) = x_hat(1:N);
     e_hat_mat(:,trials) = x_hat(N+1:end);
+    set_list{trials} = set;
     fprintf('Number of trials: %d\n', trials);
     
 end

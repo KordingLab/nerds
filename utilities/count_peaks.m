@@ -12,7 +12,7 @@ threshold = min(ephys_signal)+floor((max(ephys_signal)-min(ephys_signal))/2);
 
 peak_counts = zeros(n, 1);       % length equal to column of flo matrix
 for i = 1:n
-    [val, idx] = findpeaks_ephys(ephys_signal((i-1)*bin_len+1: i*bin_len), ...
+    [~, idx] = findpeaks_ephys(ephys_signal((i-1)*bin_len+1: i*bin_len), ...
                                  peak_dist, threshold);
     peak_counts(i) = length(idx); % number of peak found
 end
@@ -22,23 +22,24 @@ end
 
 function [val, idx] = findpeaks_ephys(signal, peak_dist, threshold)
 % input: signal - 1D signal data either column or row format
-%        peak_dist - 
+%        peak_dist - minimum peak distance parameter in findpeaks function
 %        threshold - find peak only above threshold
 
 if nargin<3
-    threshold = floor(max(signal)/2);
+    threshold = min(signal)+floor((max(signal)-min(signal))/2);
 end
 
 if nargin<2
     peak_dist = 10;
 end
-[msg id] = lastwarn;             % suppress warning
-warning('off',id)
+
+%[~, id] = lastwarn;             % suppress warning
+%warning('off',id)
 
 [val, idx] = findpeaks(double(signal),'MinPeakDistance', peak_dist, ...
                                       'MinPeakHeight',floor(max(signal)/2));
 
-warning('on',id) % turn warning back again
+%warning('on',id) % turn warning back again
                                   
 end
 
