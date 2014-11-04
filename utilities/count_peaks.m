@@ -10,12 +10,17 @@ bin_len = floor(l/n);            % total number of bins
 peak_dist = 20;
 threshold = min(ephys_signal)+floor((max(ephys_signal)-min(ephys_signal))/2);
 
+id = 'signal:findpeaks:largeMinPeakHeight';
+warning('off', id)  % suppress warning
+
 peak_counts = zeros(n, 1);       % length equal to column of flo matrix
 for i = 1:n
     [~, idx] = findpeaks_ephys(ephys_signal((i-1)*bin_len+1: i*bin_len), ...
                                  peak_dist, threshold);
     peak_counts(i) = length(idx); % number of peak found
 end
+
+warning('on',id) % turn warning back again
 
 end
 
@@ -33,13 +38,8 @@ if nargin<2
     peak_dist = 10;
 end
 
-%[~, id] = lastwarn;             % suppress warning
-%warning('off',id)
-
 [val, idx] = findpeaks(double(signal),'MinPeakDistance', peak_dist, ...
                                       'MinPeakHeight',floor(max(signal)/2));
-
-%warning('on',id) % turn warning back again
                                   
 end
 
