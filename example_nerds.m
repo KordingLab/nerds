@@ -3,7 +3,7 @@
 % 
 % ephys - single cell recording assuming that it has more sampling rate
 % flo - 1D fluorescent signal from Calcium imaging
-load('example_data')
+load('example_real_data')
 flo = flo - min(flo);
 % or flo = rescale(flo); will adjust signal to range 0 to 1
 peak_counts = count_peaks(ephys, flo);
@@ -13,11 +13,11 @@ peak_counts = count_peaks(ephys, flo);
 %   length (index) around 70
 %
 N = length(flo);
-L = 70;         % length of template approximate from fluorescent signal
-thresh = 0.1;   % thresholding parameter, plot x_hat_mat to estimate threshold
-iter = 5;       % number of iteration
-wsize = 12;     % window size
-[gen_atom_mat,set_list,x_hat_mat,e_hat_mat] = compute_nerds(flo, L, iter, thresh, wsize);
+opts.L = 70;         % length of template approximate from fluorescent signal
+opts.thresh = 0.1;   % thresholding parameter, plot x_hat_mat to estimate threshold
+opts.numTrials = 5;  % number of iteration
+opts.wsize = 12;     % window size
+[gen_atom_mat,spike_idx,x_hat_mat,e_hat_mat] = compute_nerds(flo, opts);
 
 %% Plot result
 % convolve signal back

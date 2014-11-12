@@ -7,7 +7,7 @@ function labdist_fast = metric_labdist_fast(sa,la,sb,lb,q,k)
 %    Q - timing precision parameter
 %    K - label reassigning parameter
 %
-%   Dmitriy Aronov, 6/20/01
+%   Copyright (c) Dmitriy Aronov, 6/20/01
 
 %Assign labels in the form 1,2,...,L and count spikes of each label
 lbs = unique([la lb]);
