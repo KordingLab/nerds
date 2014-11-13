@@ -37,9 +37,9 @@ where input has 2 arguments
 * `y` is 1-D fluorescent/ calcium signal (either row or column format)
 * `opts` is matlab structure contains parameters described in MATLAB code (if not specify, it will assign default parameters)
   * `opts.numTrials` - number of iteration, default `numTrials = 10`
-  * `opts.L` - length of template that we want to estimate
-  * `opts.thresh` - thresholding parameter
-  * `opts.wsize` - window size where we apply summation of spikes in the window
+  * `opts.L` - length of template that we want to estimate, default `ask user`
+  * `opts.thresh` - thresholding parameter, default `thresh = 0.1` i.e. we thershold spikes whose amplitude less than 10 % from  range of recovered spikes 
+  * `opts.wsize` - window size where we apply summation of spikes (`peak_sum`) in order to remove small group of low magnitude splikes output from algorithm
   * `opts.verbose` - verbose parameter for SPGL1, default `verbose = false`
 
 and output has 4 arguments
