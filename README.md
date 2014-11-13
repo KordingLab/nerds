@@ -63,12 +63,14 @@ For synthetic example, you can follow the code which will produce result graphs 
 ![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result1.png "NERDS paper result")
 #### Plot estimated spikes and synthetic data
 ![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result2.png "NERDS Spike train")
+#### Plot result of NERDS applying on real data
+![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerds_realdata.png "NERDS Real Data")
 
 Team members
 ----------
-* Eva Dyer
-* Christoph Studer
-* Titipat Achakulvisut
+* [Eva Dyer](http://www.ece.rice.edu/~eld1/)
+* [Christoph Studer](http://www.csl.cornell.edu/~studer/)
+* [Titipat Achakulvisut](http://klab.smpp.northwestern.edu/wiki/index.php5/Titipat_Achakulvisut)
 
 Acknowledgement
 ----------
