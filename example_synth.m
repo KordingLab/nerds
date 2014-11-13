@@ -41,20 +41,32 @@ y = y_A + y_B + noise;
 % BPDN-based absorption
 x_hat = spg_bp(dict_fun, y,opts);
 x_hat_A = x_hat(1:N);
+x_hat_A(x_hat_A <= 0.1*(max(x_hat_A)-min(x_hat_A))) = 0; % thresholding x_hat_A
+x_hat_A = peak_sum(x_hat_A);
 y_E = ifft((gen_atom_freq*sqrt(N)).*(fft(x_hat_A))); % signal estimate
-
 
 % display results
 figure(1)
-plot(y_A,'r--','LineWidth',2)
+subplot(211)
+plot(y, 'Color',[1,0.9,0.5])
 hold on
-plot(y)
-plot(y_B,'g-','LineWidth',1)
-plot(y_E,'m--','LineWidth',2)
+plot(y_A,'--','LineWidth', 2, 'Color',[0.85,0.32,0.1])
+plot(y_B,'-','LineWidth', 2, 'Color',[0.1,0.5,0])
+plot(y_E,'--','LineWidth', 2, 'Color',[0,0.45,0.74])
 axis([0 N -0.15 0.35])
-legend('original signal','corrupted signal','baseline drift','recovered signal{}')
-xlabel('sample index')
-ylabel('amplitude')
+legend('corrupted signal', 'original signal','baseline drift','recovered signal')
+xlabel('Sample index')
+ylabel('Amplitude')
+hold off
+grid on
+
+subplot(212)
+plot(y, 'Color',[1,0.9,0.5])
+hold on
+stem(max(gen_atom)*x_hat_A, 'Color',[0.85,0.32,0.1]) % correct amplitude
+legend('original signal','estimated spikes train')
+xlabel('Sample index')
+ylabel('Amplitude')
 hold off
 grid on
 

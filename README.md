@@ -30,7 +30,7 @@ Usage
 You can run NERDS algorithm by using the function `compute_nerds` in main folder
 
 ```go
-[gen_atom_mat,spike_idx,x_hat_mat,e_hat_mat] = compute_nerds(y, opts)
+[gen_atom_mat, spike_idx, x_hat_mat, e_hat_mat] = compute_nerds(y, opts)
 ```
 
 where input has 2 arguments

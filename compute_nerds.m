@@ -1,4 +1,4 @@
-function [gen_atom_mat,spike_idx,x_hat_mat,e_hat_mat] = compute_nerds(y, opts)
+function [gen_atom_mat, spike_idx, x_hat_mat, e_hat_mat] = compute_nerds(y, opts)
 %COMPUTE_NERDS
 %
 %input  y - input 1-D fluorescent signal (element should be all positive)
@@ -33,7 +33,7 @@ thresh = opts.thresh;
 
 % vectorize and padding input
 y = vec(y);         % vectorize input signal
-y = y - min(y);     % shift to get positive signal
+y = y - min(y);     % shift to get all positive signal
 y = padarray(y, opts.L, 0);  % zero padding to prevent circular shift
 N = length(y);      % length of input signal (with padding)
 
@@ -56,14 +56,14 @@ for trials = 1:opts.numTrials
     dict_fun = @(x,mode) dict(x, mode, N, gen_atom_freq);
     
     % non-negativity constraint on coefficients
-    x_hat = spg_bp_NN(dict_fun,y,1:N,opts_spg);
+    x_hat = spg_bp_NN(dict_fun, y, 1:N, opts_spg);
     x_hat(N-L:N) = 0; % set last L coefficient to zeros
     
     % update dictionary
     [gen_atom, spk_idx] = gen_new_atom(y, x_hat, N, L, wsize, thresh);
     
     % all result
-    gen_atom_mat(:, trials+1) = gen_atom(1:N-L);
+    gen_atom_mat(:,trials+1) = gen_atom(1:N-L);
     x_hat_mat(:,trials) = x_hat(1:N-L);
     e_hat_mat(:,trials) = x_hat(N+1:end);
     
@@ -72,6 +72,9 @@ for trials = 1:opts.numTrials
     
     % stopping criteria if template converge
     if norm(gen_atom_mat(:,trials+1)-gen_atom_mat(:,trials))<1e-8
+        gen_atom_mat = gen_atom_mat(:,trials+1);
+        x_hat_mat = x_hat_mat(:,trials);
+        e_hat_mat = e_hat_mat(:,trials);
         return;
     end
     
