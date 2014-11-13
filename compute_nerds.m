@@ -18,8 +18,8 @@ if nargin < 2
 end
 
 if ~isfield(opts, 'L')
-    L = input('\nwhat is the approximated length?: ');
-    opts.L = 100;
+    L = input('\nwhat is the approximated length of template?: ');
+    opts.L = L;
 end
 if ~isfield(opts, 'numTrials')  opts.numTrials = 10;    end
 if ~isfield(opts, 'thresh')     opts.thresh = 0.1;      end
