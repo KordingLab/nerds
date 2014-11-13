@@ -34,7 +34,7 @@ thresh = opts.thresh;
 % vectorize and padding input
 N_orig = length(y);
 y = vec(y) - min(vec(y));    % vectorize input signal
-y = padarray(y, opts.L, 0);  % zero padding to prevent circular shift
+y = zero_pad(y, opts.L);  % zero padding to prevent circular shift
 N = length(y);               % original length of input signal (with padding)
 
 % create initial atom/template (length L)
@@ -81,8 +81,7 @@ end
 
 % post processing: threshold spikes
 x_hat_fin = x_hat_mat(:, end);
-x_hat_fin(x_hat_fin <= 0.1*(max(x_hat_fin)-min(x_hat_fin))) = 0;
-x_hat_fin = peak_sum(x_hat_fin);
+x_hat_fin(x_hat_fin <= opts.thresh*(max(x_hat_fin)-min(x_hat_fin))) = 0;
 x_hat_mat(:, end) = x_hat_fin;
 
 % select used coefficient (without padding)
