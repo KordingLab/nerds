@@ -58,8 +58,6 @@ For synthetic example, you can follow the code which will produce result graphs 
 ![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result1.png "NERDS paper result")
 #### Plot estimated spikes and synthetic data
 ![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result2.png "NERDS Spike train")
-#### Revenge of Calcium Signal with Dubstep (by Christoph)
-![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/calcium.gif)
 
 Team members
 ----------
