@@ -29,7 +29,9 @@ Usage
 ---------
 You can run NERDS algorithm by using the function `compute_nerds` in main folder
 
-`[gen_atom_mat,spike_idx,x_hat_mat,e_hat_mat] = compute_nerds(y, opts)`
+```go
+[gen_atom_mat,spike_idx,x_hat_mat,e_hat_mat] = compute_nerds(y, opts)
+```
 
 where input has 2 arguments
 * `y` is 1-D fluorescent/ calcium signal (either row or column format)
