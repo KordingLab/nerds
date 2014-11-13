@@ -75,4 +75,4 @@ Team members
 
 Acknowledgement
 ----------
-* The calcium and electrophysiology data included in `example_real_data.mat` was collected in [Jason MacLean's Lab](http://www.macleanlab.com) at the University of Chicago. Check out [this paper]() for more details regarding the experimental methods utilized to acquire these simultaneous recordings. 
+* The calcium and electrophysiology data included in `example_real_data.mat` was collected in [Jason MacLean's Lab](http://www.macleanlab.com) at the University of Chicago. Check out [this paper](http://jn.physiology.org/content/early/2014/05/23/jn.00071.2014) for more details regarding the experimental methods utilized to acquire these simultaneous recordings. 
