@@ -49,7 +49,7 @@ and output has 4 arguments
 * `e_hat_out` is matrix contains DCT coefficient which can transform back to base-line drift in calcium signal
 
 `opts.L` is estimated length of template (called `gen_atom`) where you can estimate the length by the following figure:
-![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_example.png "NERDS paper result")
+<img src="https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_example.png" width="500px"/>
 
 Example Code
 ------------
@@ -60,11 +60,11 @@ to real data.
 For synthetic example, you can follow the code which will produce result graphs as follow. Note that post-processing, we use some thresholding after compute spikes train and summing close peak together:
 
 #### Plot of baseline drift, reconstruct spikes and synthetic data
-![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result1.png "NERDS paper result")
+<img src="https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result1.png" width="500px"/>
 #### Plot estimated spikes and synthetic data
-![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result2.png "NERDS Spike train")
+<img src="https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_synth_result2.png" width="500px"/>
 #### Plot result of NERDS applying on real data
-![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerds_realdata.png "NERDS Real Data")
+<img src="https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerds_realdata.png" width="500px"/>
 
 Team members
 ----------
