@@ -49,6 +49,7 @@ and output has 4 arguments
 * `e_hat_out` is matrix contains DCT coefficient which can transform back to base-line drift in calcium signal
 
 `opts.L` is estimated length of template (called `gen_atom`) where you can estimate the length by the following figure:
+
 <img align="center" src="https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_example.png" width="500px"/>
 
 Example Code
