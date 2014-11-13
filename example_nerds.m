@@ -17,7 +17,7 @@ opts.L = 70;         % length of template approximate from fluorescent signal
 opts.thresh = 0.1;   % thresholding parameter, plot x_hat_mat to estimate threshold
 opts.numTrials = 5;  % number of iteration
 opts.wsize = 12;     % window size
-[gen_atom_mat,spike_idx,x_hat_mat,e_hat_mat] = compute_nerds(flo, opts);
+[gen_atom_mat, spike_idx, x_hat_mat, e_hat_mat] = compute_nerds(flo, opts);
 
 %% Plot result
 % convolve signal back

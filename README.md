@@ -30,7 +30,7 @@ Usage
 You can run NERDS algorithm by using the function `compute_nerds` in main folder
 
 ```go
-[gen_atom_mat, spike_idx, x_hat_mat, e_hat_mat] = compute_nerds(y, opts)
+[gen_atom_out, spike_idx, x_hat_out, e_hat_out] = compute_nerds(y, opts)
 ```
 
 where input has 2 arguments
@@ -43,18 +43,18 @@ where input has 2 arguments
   * `opts.verbose` - verbose parameter for SPGL1, default `verbose = false`
 
 and output has 4 arguments
-* `gen_atom_mat` is estimated template where each column contains estimated template of each iteration
+* `gen_atom_out` is estimated template where each column contains estimated template of each iteration
 * `spike_idx` is cell that contain index that spikes occur
-* `x_hat_mat` is matrix where each column contains estimated spikes train produced in each iteration (we'll fix amplitude problem soon)
-* `e_hat_mat` is matrix contains DCT coefficient which can transform back to base-line drift in calcium signal
+* `x_hat_out` is matrix where each column contains estimated spikes train produced in each iteration (we'll fix amplitude problem soon)
+* `e_hat_out` is matrix contains DCT coefficient which can transform back to base-line drift in calcium signal
 
 `opts.L` is estimated length of template (called `gen_atom`) where you can estimate the length by the following figure:
 ![Alt text](https://github.com/KordingLab/nerds/blob/master/nerds_figures/nerd_example.png "NERDS paper result")
 
 Example Code
----------
+------------
 
-See `example_synth.m` file for an example from the paper and `example_nerds.m` that we apply NERDS algorithm 
+See `example_synth.m` file for an example from the paper where we show that solving Non-Negative Basis Pursuit hold a promising result of estimating . And `example_nerds.m` that we apply NERDS algorithm 
 to real data.
 
 For synthetic example, you can follow the code which will produce result graphs as follow. Note that post-processing, we use some thresholding after compute spikes train and summing close peak together:
@@ -69,3 +69,7 @@ Team members
 * Eva Dyer
 * Christoph Studer
 * Titipat Achakulvisut
+
+Acknowledgement
+----------
+* The calcium and electrophysiology data included in `example_real_data.mat` was collected in [Jason MacLean's Lab](http://www.macleanlab.com) at the University of Chicago. Check out [this paper]() for more details regarding the experimental methods utilized to acquire these simultaneous recordings. 
