@@ -34,7 +34,7 @@ thresh = opts.thresh;
 % vectorize and padding input
 y = vec(y);         % vectorize input signal
 y = y - min(y);     % shift to get positive signal
-y = padding(y, opts.L);  % zero padding to prevent circular shift
+y = padarray(y, opts.L, 0);  % zero padding to prevent circular shift
 N = length(y);      % length of input signal (with padding)
 
 % create initial atom/template (length L)
