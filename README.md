@@ -35,7 +35,12 @@ You can run NERDS algorithm by using the function `compute_nerds` in main folder
 
 where input has 2 arguments
 * `y` is 1-D fluorescent/ calcium signal (either row or column format)
-* `opts` is matlab structure contains parameters described in MATLAB code
+* `opts` is matlab structure contains parameters described in MATLAB code (if not specify, it will assign default parameters)
+  * `opts.numTrials` - number of iteration, default `numTrials = 10`
+  * `opts.L` - length of template that we want to estimate
+  * `opts.thresh` - thresholding parameter
+  * `opts.wsize` - window size where we apply summation of spikes in the window
+  * `opts.verbose` - verbose parameter for SPGL1, default `verbose = false`
 
 and output has 4 arguments
 * `gen_atom_mat` is estimated template where each column contains estimated template of each iteration
