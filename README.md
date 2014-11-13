@@ -2,6 +2,9 @@ NERDS
 ---------
 **Neural Event Reconstruction and Detection via Sparsity**
 
+`version 0.1` - this is first repository of NERDS (published on Nov 13, 2014)
+
+
 Related Publication
 ---------
 * [Dyer, E.L.; Studer, C.; Robinson, J.T.; Baraniuk, R.G., "A robust and efficient method to recover neural events from noisy and corrupted data," Neural Engineering (NER), 6th International IEEE/EMBS Conference, pp.593-596, 2013] (http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6696004)
@@ -75,4 +78,4 @@ Team members
 
 Acknowledgement
 ----------
-* The calcium and electrophysiology data included in `example_real_data.mat` was collected in [Jason MacLean's Lab](http://www.macleanlab.com) at the University of Chicago. Check out [this paper](http://jn.physiology.org/content/early/2014/05/23/jn.00071.2014) for more details regarding the experimental methods utilized to acquire these simultaneous recordings. 
+* The calcium and electrophysiology data included in `example_real_data.mat` was collected in [Jason MacLean's Lab](http://www.macleanlab.com) at the University of Chicago. Check out the following 2 papers: [Runfeldt  et. al.](http://jn.physiology.org/content/early/2014/05/23/jn.00071.2014) and [Sadovsky AJ et. al.](http://www.ncbi.nlm.nih.gov/pubmed/21715667) for more details regarding the experimental methods utilized to acquire these simultaneous recordings. 
