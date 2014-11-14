@@ -5,16 +5,16 @@
 % flo - 1D fluorescent signal from Calcium imaging
 load('example_real_data')
 flo = flo - min(flo);
+N = length(flo);
 % or flo = rescale(flo); will adjust signal to range 0 to 1
-peak_counts = count_peaks(ephys, flo);
-actual_spikes = nan(N,1); 
+peak_counts = peak_count(ephys, flo);
+actual_spikes = nan(N,1);
 actual_spikes(find(peak_counts)) = 1.05*max(flo);
 
 %% Run compute_nerds
 % - if we plot fluorescent data, we can see that length of each peak has
 %   length (index) around 70
 %
-N = length(flo);
 opts.L = 70;         % length of template approximate from fluorescent signal
 opts.thresh = 0.2;   % thresholding parameter, plot x_hat_mat to estimate threshold
 opts.numTrials = 5;  % number of iteration
@@ -42,4 +42,4 @@ legend('Fluorescent signal',...
        'Recovered spikes', ...
        'Convolved spikes with template', ...
        'Location', 'best')
-axis([0 N 0 0.2])
+axis([0 N 0 1.2*max(flo)])
