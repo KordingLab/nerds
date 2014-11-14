@@ -89,6 +89,8 @@ gen_atom_out = gen_atom_mat(1:N_orig,:);
 x_hat_out = x_hat_mat(1:N_orig,:);
 e_hat_out = e_hat_mat(1:N_orig,:);
 
+fprintf('Finish NERDS!\n');
+
 end
 
 
