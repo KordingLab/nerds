@@ -16,7 +16,7 @@ Matlab package implementing blind deconvolution method for neural spike recovery
 Requirements
 ---------
 * Matlab version >= 2007
-* [SPGL1](https://www.math.ucdavis.edu/~mpf/spgl1/) (Solver for large-scale sparse reconstruction) see also git [link](https://github.com/mpf/spgl1) and adjusted SPGL1 (note that we have already included SPGL1 and extra SPGL1 code in NERDS project)
+* [SPGL1](https://www.math.ucdavis.edu/~mpf/spgl1/) (Solver for large-scale sparse reconstruction) see also at git [link](https://github.com/mpf/spgl1) (note that we did not include `SPGL1` in NERDS project) so make sure that you install `SPGL1` and include in MATLAB path.
 
 Installation
 ---------
