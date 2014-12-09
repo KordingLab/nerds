@@ -26,7 +26,7 @@ repository to particular directory that we want
 
 `git clone https://github.com/KordingLab/nerds`
 
-After that, hover to the folder and run `setup_nerds.m` code in order to include path and setup SPGL1 package (don't worry if you cannot compile `mex` in SPGL1). Note that, in `setup_nerds` file, we included path in nerds folder and run setup file from SPGL1 package.
+Also install `SPGL1`, run `spgsetup.m`, and then add to MATLAB path. After that, hover to the folder and run `setup_nerds.m` code in order to include path.
 
 Usage
 ---------
