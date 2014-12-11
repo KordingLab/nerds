@@ -37,8 +37,16 @@ y = vec(y) - min(vec(y));    % vectorize input signal
 y = zero_pad(y, opts.L);  % zero padding to prevent circular shift
 N = length(y);               % original length of input signal (with padding)
 
-% create initial atom/template (length L)
-gen_atom = exp(-[0:1:N-1]'./(L/4));
+if (isfield(opts, 'template0'))
+   % use estimated initial template
+   gen_atom = zeros(N, 1);
+   gen_atom(1:numel(opts.template0)) = opts.template0(:);
+
+else   
+   % create initial atom/template (length L)
+   gen_atom = exp(-(0:1:N-1)'./(L/4));
+end
+
 gen_atom = gen_atom/norm(gen_atom);         % normalized
 gen_atom_freq = 1/sqrt(N)*fft(gen_atom);    % frequency normalized
 initial_atom = gen_atom;

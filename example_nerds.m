@@ -7,6 +7,7 @@ load('example_real_data')
 flo = flo - min(flo);
 % or flo = rescale(flo); will adjust signal to range 0 to 1
 peak_counts = count_peaks(ephys, flo);
+N = length(flo);
 actual_spikes = nan(N,1); 
 actual_spikes(find(peak_counts)) = 1.05*max(flo);
 
@@ -14,7 +15,6 @@ actual_spikes(find(peak_counts)) = 1.05*max(flo);
 % - if we plot fluorescent data, we can see that length of each peak has
 %   length (index) around 70
 %
-N = length(flo);
 opts.L = 70;         % length of template approximate from fluorescent signal
 opts.thresh = 0.2;   % thresholding parameter, plot x_hat_mat to estimate threshold
 opts.numTrials = 5;  % number of iteration
