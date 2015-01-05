@@ -16,7 +16,7 @@ Matlab package implementing blind deconvolution method for neural spike recovery
 Requirements
 ---------
 * Matlab version >= 2007
-* [SPGL1](https://www.math.ucdavis.edu/~mpf/spgl1/) (Solver for large-scale sparse reconstruction) see also git [link](https://github.com/mpf/spgl1) and adjusted SPGL1 (note that we have already included SPGL1 and extra SPGL1 code in NERDS project)
+* [SPGL1](https://www.math.ucdavis.edu/~mpf/spgl1/) (Solver for large-scale sparse reconstruction) see also at git [link](https://github.com/mpf/spgl1) (note that we did not include `SPGL1` in NERDS project) so make sure that you install `SPGL1` and include in MATLAB path.
 
 Installation
 ---------
@@ -26,7 +26,7 @@ repository to particular directory that we want
 
 `git clone https://github.com/KordingLab/nerds`
 
-After that, hover to the folder and run `setup_nerds.m` code in order to include path and setup SPGL1 package (don't worry if you cannot compile `mex` in SPGL1). Note that, in `setup_nerds` file, we included path in nerds folder and run setup file from SPGL1 package.
+Also install `SPGL1`, run `spgsetup.m`, and then add to MATLAB path. After that, hover to the folder and run `setup_nerds.m` code in order to include path.
 
 Usage
 ---------
@@ -79,3 +79,8 @@ Team members
 Acknowledgement
 ----------
 * The calcium and electrophysiology data included in `example_real_data.mat` was collected in [Jason MacLean's Lab](http://www.macleanlab.com) at the University of Chicago. Check out the following two papers: [Runfeldt  et. al.](http://jn.physiology.org/content/early/2014/05/23/jn.00071.2014) and [Sadovsky AJ et. al.](http://www.ncbi.nlm.nih.gov/pubmed/21715667) for more details regarding the experimental methods utilized to acquire these simultaneous recordings. 
+
+License
+-----------
+* The MIT License (MIT)
+Copyright (c) 2014 Eva Dyer, Christoph Studer and Titipat Achakulvisut

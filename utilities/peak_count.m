@@ -1,4 +1,4 @@
-function peak_counts = count_peaks(ephys_signal, fluorescent)
+function peak_counts = peak_count(ephys_signal, fluorescent)
 % function to count peaks of physiology signal
 % this function will call findpeaks_ephys function
 %input: ephys_signal - read physiology signal (lx1 vector)
@@ -6,8 +6,8 @@ function peak_counts = count_peaks(ephys_signal, fluorescent)
 
 l = length(ephys_signal);
 [m, n] = size(fluorescent);
-bin_len = floor(l/n);            % total number of bins
-peak_dist = 20;
+bin_len = floor(l/n);           % total number of bins
+peak_dist = 20;                 % default peak distance 
 threshold = min(ephys_signal)+floor((max(ephys_signal)-min(ephys_signal))/2);
 
 id = 'signal:findpeaks:largeMinPeakHeight';
