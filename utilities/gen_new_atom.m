@@ -10,7 +10,9 @@ end
 
 % note x = [x_A; x_B] which is spike component and baseline component
 x_hat_A = x_hat(1:N);
-x_hat_A = peak_sum(x_hat_A, wsize, thresh); % added function to sum peak in some window size
+if (wsize > 1)
+   x_hat_A = peak_sum(x_hat_A, wsize, thresh); % added function to sum peak in some window size
+end
 x_hat_B = x_hat(N+1:2*N);
 set = find(x_hat_A);
 
