@@ -7,7 +7,7 @@ load('example_real_data')
 flo = flo - min(flo);
 N = length(flo);
 % or flo = rescale(flo); will adjust signal to range 0 to 1
-peak_counts = count_peaks(ephys, flo);
+peak_counts = peak_count(ephys, flo);
 N = length(flo);
 actual_spikes = nan(N,1); 
 actual_spikes(find(peak_counts)) = 1.05*max(flo);
