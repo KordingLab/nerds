@@ -20,9 +20,9 @@ dict_fun = @(x,mode) dict(x, mode, N, gen_atom_freq);
 dumb_dict_fun = @(x,mode) dumb_dict(x, mode, N, gen_atom_freq);
 
 % generate sparse vectors x_A and x_B
-idx = randperm(N);
+idx = randi(round(0.8*N), [1, s_A]);
 x_A = zeros(N,1);
-x_A(idx(1:s_A)) = abs(randn(s_A,1))+0.3;
+x_A(idx(1:s_A)) = abs(randn(s_A,1))+0.5;
 
 idx = randperm(10)+5;   % only use low frequencies
 x_B = zeros(N,1);
