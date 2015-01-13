@@ -17,7 +17,7 @@ gen_atom_est = zeros(N,1);
 gen_atom_est(1:L) = gen_atom(1:L);
 gen_atom_est = gen_atom_est/trapz([1:N]', gen_atom_est); % pdf
 F = @(param, xdata) gampdf(xdata, param(1), param(2)); % create gamma pdf function
-init_con = [5, 5]; % initial condition of gamma params (need to change)
+init_con = [sqrt(L), sqrt(L)]; % initial condition of gamma params (need to change)
 
 options = optimset(optimset('lsqcurvefit'),'Display','off');
 sol = lsqcurvefit(F, init_con, [1:N]', gen_atom_est, [], [], options);
