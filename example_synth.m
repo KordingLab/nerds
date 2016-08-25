@@ -1,6 +1,5 @@
 function y = example_synth
 % function to create synthetic noisy calcium data
-% this is example from Eva IEEE paper
 
 N = 4096;
 s_A = 10;   % number of spikes
