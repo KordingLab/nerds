@@ -9,7 +9,7 @@ N = size(traces,1);
 telapsed = zeros(N,1);
 x_hat = cell(N,1);
 norm_traces = zeros(size(traces));
-%parpool(2)
+parpool(8)
 parfor i=1:N
     flo = traces(i,:); 
     flo = flo - min(flo);
