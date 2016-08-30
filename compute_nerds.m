@@ -44,7 +44,7 @@ end
 
 % vectorize and padding input
 N_orig = length(y);
-y = vec(y) - min(vec(y));    % vectorize input signal
+%y = vec(y) - min(vec(y));    % vectorize input signal
 y = zero_pad(y, opts.L);  % zero padding to prevent circular shift
 N = length(y);               % original length of input signal (with padding)
 
