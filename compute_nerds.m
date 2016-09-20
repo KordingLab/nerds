@@ -1,7 +1,7 @@
 function [gen_atom_out, spike_idx, x_hat_out, e_hat_out] = compute_nerds(y, opts)
 %COMPUTE_NERDS
 %
-%input  y - input 1-D fluorescent signal (element should be all positive, with no NaNs)
+%input  y - input 1-D fluorescent signal (element should have no NaNs)
 %       opts - Structure defining options (all are optional)
 %           opts.L - approximate length of template (gen_atom)
 %           opts.template0 - initial template estimate
@@ -45,7 +45,7 @@ end
 % vectorize and padding input
 N_orig = length(y);
 y = vec(y) - min(vec(y));    % vectorize input signal
-y = zero_pad(y, opts.L);  % zero padding to prevent circular shift
+y = zero_pad(y, round(numel(y)/10));  % zero padding to prevent circular shift
 N = length(y);               % original length of input signal (with padding)
 
 if (isfield(opts, 'template0'))
