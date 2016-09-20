@@ -1,8 +1,8 @@
 function [gen_atom_out, spike_idx, x_hat_out, e_hat_out] = compute_nerds(y, opts)
 %COMPUTE_NERDS
 %
-%input  y - input 1-D fluorescent signal (element should be all positive, with no NaNs)
-%       opts - Structure defining options (all are optional)
+% input  y - input 1-D fluorescent signal (element should have no NaNs)
+%        opts - Structure defining options (all are optional)
 %           opts.L - approximate length of template (gen_atom)
 %           opts.template0 - initial template estimate
 %           opts.numTrials - number of iterations that you want to run
@@ -45,7 +45,7 @@ end
 % vectorize and padding input
 N_orig = length(y);
 %y = vec(y) - min(vec(y));    % vectorize input signal
-y = zero_pad(y, opts.L);  % zero padding to prevent circular shift
+y = zero_pad(y, round(numel(y)/10)); % zero padding to prevent circular shift
 N = length(y);               % original length of input signal (with padding)
 
 if (isfield(opts, 'template0'))
@@ -53,7 +53,7 @@ if (isfield(opts, 'template0'))
    gen_atom = zeros(N, 1);
    gen_atom(1:L) = opts.template0(1:L);
 
-else   
+else
    % create initial atom/template (length L)
    gen_atom = exp(-(0:1:N-1)'./(L/4));
 end
@@ -75,10 +75,10 @@ for trials = 1:opts.numTrials
    if (opts.verbose)
       fprintf('NERDS: Trial %d...\n', trials);
    end
-   
+
     opts_spg = spgSetParms('verbosity', opts.verbose);
     dict_fun = @(x,mode) dict(x, mode, N, gen_atom_freq);
-    
+
     % non-negativity constraint on coefficients
     x_hat = spg_bp_NN(dict_fun, y, 1:N, opts_spg);
     x_hat(N-L:N) = 0; % set last L coefficient to zeros
@@ -91,23 +91,23 @@ for trials = 1:opts.numTrials
        else
           spike_idx{trials} = find(x_hat); %#ok<AGROW>
        end
-       
+
        gen_atom_mat = gen_atom(1:N-L);
        x_hat_mat = x_hat(1:N-L);
        e_hat_mat = x_hat(N+1:end);
        break;
     end
-    
+
     % update dictionary
     [gen_atom, spk_idx] = gen_new_atom(y, x_hat, N, L, wsize, thresh);
-    
+
     % all result
     gen_atom_mat(:,trials+1) = gen_atom(1:N-L);
     x_hat_mat(:,trials) = x_hat(1:N-L);
     e_hat_mat(:,trials) = x_hat(N+1:end);
-    
+
     spike_idx{trials} = spk_idx; %#ok<AGROW>
-    
+
     % stopping criteria if template converge
     if norm(gen_atom_mat(:,trials+1)-gen_atom_mat(:,trials))<1e-8
         gen_atom_mat = gen_atom_mat(:,trials+1);
@@ -132,5 +132,3 @@ if (opts.verbose)
 end
 
 end
-
-
